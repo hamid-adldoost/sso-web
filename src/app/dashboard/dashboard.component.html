@@ -1,0 +1,75 @@
+<div class="main-content">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card card-stats" >
+                        <div class="card-header" data-background-color="green">
+                            <i class="material-icons">group</i>
+                        </div>
+                        <div class="card-content">
+                            <p class="category">تعداد کاربران</p>
+                            <h3 class="title">{{countOfAnswersheet}}</h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <a (click)="getCountOfAnswersheets()"><i class="material-icons text-danger">refresh</i> بروز رسانی</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card card-stats" >
+                        <div class="card-header" data-background-color="orange">
+                            <i class="material-icons">vpn_key</i>
+                        </div>
+                        <div class="card-content">
+                            <p class="category">تعداد مجوز ها</p>
+                            <h3 class="title">{{countOfQuestionnaire}}</h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <a (click)="getQuestionnaireCount()"><i class="material-icons text-danger">refresh</i> بروز رسانی</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card card-stats" >
+                        <div class="card-header" data-background-color="red">
+                            <i class="material-icons">contacts</i>
+                        </div>
+                        <div class="card-content">
+                            <p class="category">تعداد نقش ها</p>
+                            <h3 class="title">{{averageSatisfactionLevel | number:'1.1-2'}}</h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <a (click)="getAverageSatisfactionLevel()"><i class="material-icons text-danger">refresh</i> بروز رسانی</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card card-stats" >
+                        <div class="card-header" data-background-color="blue">
+                            <i class="material-icons">lock_open</i>
+                        </div>
+                        <div class="card-content">
+                            <p class="category">لاگین در 24 ساعت گذشته</p>
+                            <h3 class="title">{{countOfAnswersheetLast24Hours}}</h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <a (click)="getCountOfAnswersheetLast24Hours()"><i class="material-icons text-danger">refresh</i> بروز رسانی</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <hr />
+          <br />
+        </div>
+</div>

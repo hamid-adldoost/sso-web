@@ -1,0 +1,112 @@
+<div class="main-content">
+
+  <div class="container-fluid">
+    <!--<p-messages ></p-messages>-->
+    <p-growl></p-growl>
+    <div class="row">
+
+      <p-panel>
+        <p-header>
+          مدیریت مجوز های کاربران
+        </p-header>
+
+        <div class="row">
+          <div class="ui-g" style="font-family: iran-sans-web">
+
+            <div class="ui-lg-2 ui-md-4 ui-sm-12">
+              نام کاربری :
+            </div>
+            <div class="ui-lg-10 ui-md-8 ui-sm-12">
+              {{user.username}}
+            </div>
+            <div class="ui-lg-2 ui-md-4 ui-sm-12">
+              مجوز ها :
+            </div>
+            <div class="ui-lg-8 ui-md-8 ui-sm-12">
+              <p-dropdown [options]="remainingPermissions" [(ngModel)]="permission"></p-dropdown>
+            </div>
+            <div class="ui-lg-2 ui-md-4 ui-sm-12">
+              <button pButton type="button" name="submitBtn" label="افزودن" (click)="addPermission()"></button>
+            </div>
+            <div class="ui-lg-2 ui-md-4 ui-sm-12">
+              نقش ها :
+            </div>
+            <div class="ui-lg-8 ui-md-8 ui-sm-12">
+              <p-dropdown [options]="remainingRoles" [(ngModel)]="role"></p-dropdown>
+            </div>
+            <div class="ui-lg-2 ui-md-8 ui-sm-12">
+              <button pButton type="button" name="submitBtn" label="افزودن" (click)="addRole()"></button>
+            </div>
+          </div>
+        </div>
+
+        <br/>
+        <br/>
+
+        <p-table #dt [value]="user.roleList" [paginator]="true">
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th>
+                نام نقش
+              </th>
+              <th>
+                عنوان نقش
+              </th>
+              <th>
+                حذف
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+              <td>
+                {{rowData.name}}
+              </td>
+              <td>
+                {{rowData.title}}
+              </td>
+              <td>
+                <button pButton type="button" label="حذف" (click)="deleteRole(rowData.id)"></button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+
+        <br />
+        <br />
+
+        <p-table #dt2 [value]="user.permissionList" >
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th>
+                نام مجوز
+              </th>
+              <th>
+                عنوان مجوز
+              </th>
+              <th>
+                حذف
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+              <td>
+                {{rowData.name}}
+              </td>
+              <td>
+                {{rowData.title}}
+              </td>
+              <td>
+                <button pButton type="button" label="حذف" (click)="deletePermission(rowData.id)"></button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+        <p-footer>
+        </p-footer>
+      </p-panel>
+    </div>
+  </div>
+</div>
+

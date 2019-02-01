@@ -1,0 +1,9 @@
+{
+  "/ibm/sso": {
+    "target": "http://localhost:8282/",
+    "secure": false,
+    "logLevel" : "debug"
+  }
+
+}
+
