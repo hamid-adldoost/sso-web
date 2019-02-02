@@ -33,6 +33,7 @@ export class PermissionsComponent implements OnInit {
         console.log('calling by username..');
         this.usersService.findByUsername(params['username']).subscribe(res => {
           this.user = res.data[0];
+          console.log('user:', this.user);
           if (this.user) {
             this.usersService.findUnAssignedPermissions(this.user.id).subscribe(res2 => {
               this.remainingPermissions = this.prepareDropDownOptions(res2);
@@ -53,30 +54,42 @@ export class PermissionsComponent implements OnInit {
     });
   }
 
-  deletePermission(id: any) {
-
+  removePermissionForUser(id: any) {
+    this.usersService.removePermissionForUSer(id, this.user.id).subscribe(res => {
+      this.ngOnInit();
+    }, error => {
+      this.commonService.showErrorMessage(error);
+    });
   }
 
-  deleteRole(id: any) {
-
-  }
-
-  loadUserRoles($event: any) {
-
+  removeRoleFromUser(id: any) {
+    this.usersService.removeRoleForUSer(id, this.user.id).subscribe(res => {
+      this.ngOnInit();
+    }, error => {
+      this.commonService.showErrorMessage(error);
+    });
   }
 
   addPermission() {
     const permissions = [];
-    permissions.push(this.permission);
+    permissions.push(this.permission.id);
     this.usersService.addPermissionToUser(permissions, this.user.id).subscribe(res => {
       this.commonService.showInfoMessage('با موفقیت ثبت شد');
+      this.ngOnInit();
     }, error => {
       this.commonService.showErrorMessage(error);
     });
   }
 
   addRole() {
-
+    const roles = [];
+    roles.push(this.role.id);
+    this.usersService.addRoleToUser(roles, this.user.id).subscribe(res => {
+      this.commonService.showInfoMessage('با موفقیت ثبت شد');
+      this.ngOnInit();
+    }, error => {
+      this.commonService.showErrorMessage(error);
+    });
   }
 
   prepareDropDownOptions(list: any[]): any[] {

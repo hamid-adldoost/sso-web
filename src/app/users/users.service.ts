@@ -57,4 +57,16 @@ export class UsersService {
   addPermissionToUser(permissions: any[], id: any): Observable<any> {
     return this.httpClient.post(this.serviceUrl + '/security-user/add-permission/' + id, permissions);
   }
+
+  addRoleToUser(roles: any[], id: any): Observable<any> {
+    return this.httpClient.post(this.serviceUrl + '/security-user/add-role/' + id, roles);
+  }
+
+  removePermissionForUSer(id: any, userId: any): Observable<any> {
+    return this.httpClient.delete(this.serviceUrl + '/security-user/remove-permission/' + userId + '/' + id);
+  }
+
+  removeRoleForUSer(id: any, userId: any): Observable<any> {
+    return this.httpClient.delete(this.serviceUrl + '/security-user/remove-role/' + userId + '/' + id);
+  }
 }

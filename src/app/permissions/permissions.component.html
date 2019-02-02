@@ -20,6 +20,15 @@
               {{user.username}}
             </div>
             <div class="ui-lg-2 ui-md-4 ui-sm-12">
+              نقش ها :
+            </div>
+            <div class="ui-lg-8 ui-md-8 ui-sm-12">
+              <p-dropdown [options]="remainingRoles" [(ngModel)]="role"></p-dropdown>
+            </div>
+            <div class="ui-lg-2 ui-md-8 ui-sm-12">
+              <button pButton type="button" name="submitBtn" label="افزودن" (click)="addRole()"></button>
+            </div>
+            <div class="ui-lg-2 ui-md-4 ui-sm-12">
               مجوز ها :
             </div>
             <div class="ui-lg-8 ui-md-8 ui-sm-12">
@@ -28,12 +37,7 @@
             <div class="ui-lg-2 ui-md-4 ui-sm-12">
               <button pButton type="button" name="submitBtn" label="افزودن" (click)="addPermission()"></button>
             </div>
-            <div class="ui-lg-2 ui-md-4 ui-sm-12">
-              نقش ها :
-            </div>
-            <div class="ui-lg-8 ui-md-8 ui-sm-12">
-              <p-dropdown [options]="remainingRoles" [(ngModel)]="role"></p-dropdown>
-            </div>
+
             <div class="ui-lg-2 ui-md-8 ui-sm-12">
               <button pButton type="button" name="submitBtn" label="افزودن" (click)="addRole()"></button>
             </div>
@@ -43,7 +47,7 @@
         <br/>
         <br/>
 
-        <p-table #dt [value]="user.roleList" [paginator]="true">
+        <p-table #dt [value]="user.roleList" rows="10" [paginator]="true">
           <ng-template pTemplate="header" let-columns>
             <tr>
               <th>
@@ -66,7 +70,7 @@
                 {{rowData.title}}
               </td>
               <td>
-                <button pButton type="button" label="حذف" (click)="deleteRole(rowData.id)"></button>
+                <button pButton type="button" label="حذف" (click)="removeRoleFromUser(rowData.id)"></button>
               </td>
             </tr>
           </ng-template>
@@ -75,7 +79,7 @@
         <br />
         <br />
 
-        <p-table #dt2 [value]="user.permissionList" >
+        <p-table #dt2 [value]="user.permissionList" rows="10"  [paginator]="true">
           <ng-template pTemplate="header" let-columns>
             <tr>
               <th>
@@ -98,7 +102,7 @@
                 {{rowData.title}}
               </td>
               <td>
-                <button pButton type="button" label="حذف" (click)="deletePermission(rowData.id)"></button>
+                <button pButton type="button" label="حذف" (click)="removePermissionForUser(rowData.id)"></button>
               </td>
             </tr>
           </ng-template>
