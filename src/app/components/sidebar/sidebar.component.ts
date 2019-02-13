@@ -15,8 +15,8 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
   {path: 'dashboard', title: 'داشبورد', icon: 'dashboard', class: ''},
   {path: '/inner/users/', title: 'کاربران', icon: 'people_outline', class: ''},
-  {path: '#', title: 'دسترسی ها', icon: 'vpn_key', class: ''},
-  {path: '#', title: 'نقش ها', icon: 'contacts', class: ''},
+  // {path: '#', title: 'دسترسی ها', icon: 'vpn_key', class: ''},
+  {path: '/inner/roles', title: 'نقش ها', icon: 'contacts', class: ''},
   {path: '#', title: 'صفحات', icon: 'find_in_page', class: ''},
   {path: '#', title: 'منو ها', icon: 'menu', class: ''},
 ];

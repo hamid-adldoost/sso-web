@@ -52,32 +52,4 @@ export class AdminUtilityService {
     return this.httpClient.post(this.securityServiceUrl + '/security-user/change-pass', formData);
   }
 
-  loadEtebarTitleList(first: number | undefined, rows: number | undefined): Observable<any> {
-
-    return this.httpClient.get(this.serviceUrl + '/manabe-dakheli-title/search/?firstIndex=' + first + '&pageSize=' + rows);
-  }
-
-  deleteEtebarTitle(id: any): Observable<any> {
-    return this.httpClient.delete(this.serviceUrl + '/manabe-dakheli-title/remove/' + id);
-  }
-
-  saveEtebarTitle(etebar: any): Observable<any> {
-
-    return this.httpClient.post(this.serviceUrl +  '/manabe-dakheli-title/save/', etebar);
-
-  }
-
-  loadDepartmentsForUser(userId: string): Observable<any> {
-    return this.httpClient.get(this.serviceUrl + '/user-department/search/?userId=' + userId );
-  }
-
-  loadUnSelectedDepartmentsForUser(userId: string): Observable<any> {
-
-    return this.httpClient.get(this.serviceUrl + '/user-department/unselected/?userId=' + userId );
-  }
-
-  saveUserDepartment(userDepartment: any): Observable<any> {
-
-    return this.httpClient.post(this.serviceUrl + '/user-department/save', userDepartment);
-  }
 }

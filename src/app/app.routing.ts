@@ -7,6 +7,7 @@ import {InnerComponent} from './inner/inner.component';
 import {UsersComponent} from './users/users.component';
 import {ChangePassComponent} from './change-pass/change-pass.component';
 import {PermissionsComponent} from './permissions/permissions.component';
+import {RolesComponent} from './roles/roles.component';
 
 const routes: Routes = [
     {
@@ -33,6 +34,10 @@ const routes: Routes = [
           {
             path: 'permissions',
             component: PermissionsComponent,
+          },
+          {
+            path: 'roles',
+            component: RolesComponent,
           }
         ]
     },

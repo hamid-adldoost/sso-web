@@ -36,12 +36,12 @@ export class PermissionsComponent implements OnInit {
           console.log('user:', this.user);
           if (this.user) {
             this.usersService.findUnAssignedPermissions(this.user.id).subscribe(res2 => {
-              this.remainingPermissions = this.prepareDropDownOptions(res2);
+              this.remainingPermissions = this.commonService.prepareDropDownOptions(res2, 'title');
             }, error => {
               this.commonService.showErrorMessage(error);
             });
             this.usersService.findUnAssignedRoles(this.user.id).subscribe(res3 => {
-              this.remainingRoles = this.prepareDropDownOptions(res3);
+              this.remainingRoles = this.commonService.prepareDropDownOptions(res3, 'title');
             }, error => {
               this.commonService.showErrorMessage(error);
             });
@@ -92,16 +92,5 @@ export class PermissionsComponent implements OnInit {
     });
   }
 
-  prepareDropDownOptions(list: any[]): any[] {
-    const options = [];
-    options.push({label: 'انتخاب کنید', value: null});
-    if (!list) {
-      return options;
-    }
-    for (let item of list) {
-      options.push({label: item.title, value: item});
-    }
-    console.log('options', options);
-    return options;
-  }
+
 }

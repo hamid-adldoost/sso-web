@@ -1,0 +1,17 @@
+input {
+  width: 200px;
+}
+
+.ui-multiselect {
+  direction: rtl;
+}
+
+.ui-multiselect-panel {
+  text-align: right;
+}
+
+.ui-multiselect-items {
+  text-align: right;
+}
+
+

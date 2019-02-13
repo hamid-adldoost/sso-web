@@ -20,7 +20,7 @@ import {ButtonModule} from 'primeng/button';
 import {PanelModule} from 'primeng/panel';
 import {
   AutoCompleteModule, CheckboxModule, ConfirmDialogModule, DropdownModule, InputSwitchModule, KeyFilterModule,
-  MessagesModule,
+  MessagesModule, MultiSelectModule,
   OrganizationChartModule, RadioButtonModule, SelectButtonModule, SpinnerModule, TreeTableModule, PanelMenuModule, MenuItem,
   FileUploadModule,
 } from 'primeng/primeng';
@@ -38,6 +38,7 @@ import {ChartModule} from 'primeng/chart';
 import { UsersComponent } from './users/users.component';
 import { ChangePassComponent } from './change-pass/change-pass.component';
 import { PermissionsComponent } from './permissions/permissions.component';
+import { RolesComponent } from './roles/roles.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { PermissionsComponent } from './permissions/permissions.component';
     UsersComponent,
     ChangePassComponent,
     PermissionsComponent,
+    RolesComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +89,7 @@ import { PermissionsComponent } from './permissions/permissions.component';
     PanelMenuModule,
     FileUploadModule,
     GrowlModule,
+    MultiSelectModule,
   ],
   providers: [
     AuthService,

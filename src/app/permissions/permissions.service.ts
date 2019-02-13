@@ -13,4 +13,7 @@ export class PermissionsService {
   constructor(private httpClient: HttpClient) { }
 
 
+  findAllPermissions(): Observable<any> {
+    return this.httpClient.get(this.serviceUrl + '/security-permission/search');
+  }
 }

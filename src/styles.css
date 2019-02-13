@@ -57,3 +57,7 @@ th{
 p-dropdown .ui-dropdown {
   width: 100% !important;
 }
+
+.ui-multiselect-item {
+  text-align: right!important;
+}

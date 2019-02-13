@@ -16,62 +16,6 @@ export class CommonService {
 
   }
 
-  getAllDepartments(): Observable<any> {
-    return this.httpClient.get(this.serviceUrl + 'department/search');
-  }
-
-  getAllEtebars(): Observable<any> {
-    return this.httpClient.get(this.serviceUrl + 'etebar/search');
-  }
-
-  getAllScaleTypeItems(): Observable<any> {
-    return this.httpClient.get(this.serviceUrl + 'scaleTypeItem/search');
-  }
-
-  getsmallScaleTypeItems(): Observable<any> {
-    return this.httpClient.get(this.serviceUrl + 'scaleTypeItem/search?scaleTypeId=2');
-  }
-
-  getLargeScaleTypeItems(): Observable<any> {
-    return this.httpClient.get(this.serviceUrl + 'scaleTypeItem/search?scaleTypeId=1');
-  }
-
-  getUnits(): Observable<any> {
-    return this.httpClient.get(this.serviceUrl + 'unit/search');
-  }
-
-  getOrganizations(): Observable<any> {
-    return this.httpClient.get(this.serviceUrl + 'organization/search');
-  }
-
-  getMainCreditsOfYear(): Observable<any> {
-    return this.httpClient.get(this.serviceUrl + 'mainCredit/search');
-  }
-
-  getPlanTitles(activityType: any): Observable<any> {
-    return this.httpClient.get(this.serviceUrl + 'incomeCreditPlanTitles/search?isGheireEblaghi=' + activityType);
-  }
-
-  getPersianMonthName(monthNo: any): Observable<any> {
-    return this.httpClient.get(this.serviceUrl + 'persianMonth/search?=' + monthNo);
-  }
-
-  getPersianMonthes(): Observable<any> {
-    return this.httpClient.get(this.serviceUrl + 'persianMonth/search');
-  }
-
-  loadUnits(): Observable<any> {
-    return this.httpClient.get(this.serviceUrl + 'unit/search');
-  }
-
-  saveUnit(unit: any): Observable<any> {
-    return this.httpClient.post(this.serviceUrl + '/unit/save', unit);
-  }
-
-  deleteUnit(id: any) {
-    return this.httpClient.delete(this.serviceUrl + '/unit/remove/' + id);
-  }
-
   showErrorMessageByService(messageService: MessageService, error: any) {
     messageService.add({severity: 'error', summary: error.error.message});
   }
@@ -82,5 +26,31 @@ export class CommonService {
 
   showInfoMessage(info: string) {
     this.messageService.add({severity: 'info', summary: info});
+  }
+
+  // prepareDropDownOptions(list: any[], labelField: any): any[] {
+  //   const options = [];
+  //   options.push({label: 'انتخاب کنید', value: null});
+  //   if (!list) {
+  //     return options;
+  //   }
+  //   for (let item of list) {
+  //     options.push({label: item[labelField], value: item});
+  //   }
+  //   console.log('options', options);
+  //   return options;
+  // }
+
+  prepareDropDownOptions(input: any[], labelField: string): any[] {
+    if (!input)
+      return [];
+    let result = [];
+    let item = {label: 'انتخاب کنید', value: null};
+    result.push(item);
+    input.forEach(i => {
+      let item = {label: i[labelField], value: i};
+      result.push(item);
+    });
+    return result;
   }
 }
