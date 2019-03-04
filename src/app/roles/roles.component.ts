@@ -68,4 +68,8 @@ export class RolesComponent implements OnInit {
       this.commonService.showErrorMessage(error);
     });
   }
+
+  clear() {
+    this.role = new Object();
+  }
 }

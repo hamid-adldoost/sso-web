@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../environments/environment';
 import {MessageService} from 'primeng/components/common/messageservice';
+import {TreeNode} from 'primeng/api';
 
 @Injectable({
   providedIn: 'root'
@@ -42,15 +43,46 @@ export class CommonService {
   // }
 
   prepareDropDownOptions(input: any[], labelField: string): any[] {
-    if (!input)
+    if (!input) {
       return [];
-    let result = [];
-    let item = {label: 'انتخاب کنید', value: null};
+    }
+    const result = [];
+    const item = {label: 'انتخاب کنید', value: null};
     result.push(item);
     input.forEach(i => {
-      let item = {label: i[labelField], value: i};
+      const item = {label: i[labelField], value: i};
       result.push(item);
     });
     return result;
   }
+
+  prepareTreeForMenuItemTree(menuTreeItemList: any[]): TreeNode[] {
+
+    console.log('menu-tree-item', menuTreeItemList);
+    if (!menuTreeItemList) {
+      console.log('return');
+      return null;
+    }
+    let treeMenuItem = [];
+    menuTreeItemList.forEach(m => {
+      treeMenuItem.push(this.convertMenuItemTreeItemToTreeItem(m));
+    });
+    return treeMenuItem;
+  }
+
+  convertMenuItemTreeItemToTreeItem(item): TreeNode {
+    if (!item)
+      return null;
+    const treeMenuItem: TreeNode = <any>{
+      label: item.title,
+      data: item.name,
+      expandedIcon: 'fa fa-folder-open',
+      collapsedIcon: 'fa fa-folder',
+      children: this.prepareTreeForMenuItemTree(item.childTreeList),
+      realValue: item
+    };
+    console.log(treeMenuItem);
+    return treeMenuItem;
+  }
+
 }

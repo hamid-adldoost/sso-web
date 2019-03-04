@@ -1,13 +1,12 @@
 <div class="main-content">
 
   <div class="container-fluid">
-    <!--<p-messages ></p-messages>-->
     <p-growl></p-growl>
     <div class="row">
 
       <p-panel>
         <p-header>
-          مدیریت نقش ها
+          مدیریت صفحات
         </p-header>
 
         <div class="row">
@@ -17,33 +16,33 @@
               نام :
             </div>
             <div class="ui-lg-10 ui-md-8 ui-sm-12">
-              <input pInputText type="text" name="roleNameTxt" [(ngModel)]="role.name" placeholder="نام"/>
+              <input pInputText type="text" name="roleNameTxt" [(ngModel)]="webPage.name" placeholder="نام"/>
             </div>
             <div class="ui-lg-2 ui-md-4 ui-sm-12">
               عنوان :
             </div>
             <div class="ui-lg-10 ui-md-8 ui-sm-12">
-              <input pInputText type="text" name="roleNameTxt" [(ngModel)]="role.title" placeholder="عنوان نقش"/>
+              <input pInputText type="text" name="roleNameTxt" [(ngModel)]="webPage.title" placeholder="عنوان "/>
             </div>
             <div class="ui-lg-2 ui-md-4 ui-sm-12">
-              مجوز ها :
+              محتوا :
+            </div>
+            <div class="ui-lg-10 ui-md-8 ui-sm-12">
+              <textarea pInputText name="contentArea" [(ngModel)]="webPage.content" placeholder="محتوا " style="width:80%; min-height: 200px;"></textarea>
+            </div>
+            <div class="ui-lg-2 ui-md-4 ui-sm-12">
+              آدرس :
             </div>
             <div class="ui-lg-6 ui-md-6 ui-sm-12">
-              <p-multiSelect [panelStyle]="{minWidth:'200px'}" [style]="{width:'200px'}"
-                             [options]="permissionList" optionLabel="title" dataKey="id"
-                             [(ngModel)]="role.permissionList">
-              </p-multiSelect>
+              <input pInputText type="text" name="addressTxt" [(ngModel)]="webPage.address" style="width:80%; text-align: left; direction: ltr;" placeholder="آدرس "/>
             </div>
             <div class="ui-lg-2 ui-md-8 ui-sm-12">
-              <button pButton type="button" name="submitBtn" label="ثبت" (click)="addRole()"></button>
+              <button pButton type="button" name="submitBtn" label="ثبت" (click)="addWebPage()"></button>
             </div>
             <div class="ui-lg-2 ui-md-8 ui-sm-12">
-              <button pButton *ngIf="role.id" type="button" name="clearBtn" label="لغو" (click)="clear()"></button>
+              <button pButton *ngIf="webPage.id" type="button" name="clearBtn" label="لغو" (click)="clear()"></button>
             </div>
 
-            <!--<div class="ui-lg-2 ui-md-4 ui-sm-12">-->
-            <!--<button pButton type="button" name="submitBtn" label="افزودن" (click)="addPermission()"></button>-->
-            <!--</div>-->
 
           </div>
         </div>
@@ -51,14 +50,14 @@
         <br/>
         <br/>
 
-        <p-table #dt [value]="rolesList" [paginator]="true" rows="50">
+        <p-table #dt [value]="webPageList" [paginator]="true" rows="50">
           <ng-template pTemplate="header" let-columns>
             <tr>
               <th>
-                نام نقش
+                نام صفحه
               </th>
               <th>
-                عنوان نقش
+                عنوان صفحه
               </th>
               <th>
                 ویرایش

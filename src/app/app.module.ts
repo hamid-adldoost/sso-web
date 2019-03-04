@@ -22,7 +22,7 @@ import {
   AutoCompleteModule, CheckboxModule, ConfirmDialogModule, DropdownModule, InputSwitchModule, KeyFilterModule,
   MessagesModule, MultiSelectModule,
   OrganizationChartModule, RadioButtonModule, SelectButtonModule, SpinnerModule, TreeTableModule, PanelMenuModule, MenuItem,
-  FileUploadModule,
+  FileUploadModule, TreeModule,
 } from 'primeng/primeng';
 import {GrowlModule} from 'primeng/growl';
 import {MessageService} from 'primeng/components/common/messageservice';
@@ -39,6 +39,8 @@ import { UsersComponent } from './users/users.component';
 import { ChangePassComponent } from './change-pass/change-pass.component';
 import { PermissionsComponent } from './permissions/permissions.component';
 import { RolesComponent } from './roles/roles.component';
+import { WebPageComponent } from './web-page/web-page.component';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
@@ -53,6 +55,8 @@ import { RolesComponent } from './roles/roles.component';
     ChangePassComponent,
     PermissionsComponent,
     RolesComponent,
+    WebPageComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,6 +94,7 @@ import { RolesComponent } from './roles/roles.component';
     FileUploadModule,
     GrowlModule,
     MultiSelectModule,
+    TreeModule,
   ],
   providers: [
     AuthService,
