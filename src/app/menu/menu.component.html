@@ -28,7 +28,13 @@
               مجوز :
             </div>
             <div class="ui-lg-10 ui-md-8 ui-sm-12">
-              <input pInputText type="text" name="itemPermTxt" [(ngModel)]="menuItem.title" placeholder="مجوز "/>
+              <p-dropdown [options]="commonService.prepareDropDownOptions(permissionsList, 'name')" dataKey="id" [(ngModel)]="menuItem.permission"></p-dropdown>
+            </div>
+            <div class="ui-lg-2 ui-md-4 ui-sm-12">
+              صفحه مربوطه :
+            </div>
+            <div class="ui-lg-10 ui-md-8 ui-sm-12">
+              <p-dropdown [options]="commonService.prepareDropDownOptions(webPageList, 'name')" dataKey="id" [(ngModel)]="menuItem.page"></p-dropdown>
             </div>
             <div class="ui-lg-2 ui-md-4 ui-sm-12">
               آدرس :
@@ -51,52 +57,50 @@
         <br/>
         <br/>
 
+        با انتخاب از ساختار درختی زیر می توانید منوی مورد نظر را به عنوان والد انتخاب کنید
+        <br />
+        <br />
         <div *ngIf="menuTreeList" style="direction: ltr;">
           <!--<p-tree [value]="menuTreeList" layout="horizontal" selectionMode="single" [(selection)]="selectedMenuItem"> </p-tree>-->
           <div *ngFor="let c of horizontalMenuItems">
-            <p-tree [value]="c" layout="horizontal" selectionMode="single" [(selection)]="selectedMenuItem"> </p-tree>
+            <p-tree [value]="c" layout="horizontal" selectionMode="single" [(selection)]="selectedMenuItem"></p-tree>
           </div>
         </div>
-
-        <!--<p-table #dt [value]="menuItemList" [paginator]="true" rows="50">-->
-        <!--<ng-template pTemplate="header" let-columns>-->
-        <!--<tr>-->
-        <!--<th>-->
-        <!--نام صفحه-->
-        <!--</th>-->
-        <!--<th>-->
-        <!--عنوان صفحه-->
-        <!--</th>-->
-        <!--<th>-->
-        <!--ویرایش-->
-        <!--</th>-->
-        <!--<th>-->
-        <!--حذف-->
-        <!--</th>-->
-        <!--</tr>-->
-        <!--</ng-template>-->
-        <!--<ng-template pTemplate="body" let-rowData let-columns="columns">-->
-        <!--<tr>-->
-        <!--<td>-->
-        <!--{{rowData.name}}-->
-        <!--</td>-->
-        <!--<td>-->
-        <!--{{rowData.title}}-->
-        <!--</td>-->
-        <!--<td>-->
-        <!--<button pButton type="button" label="ویرایش" (click)="edit(rowData)"></button>-->
-        <!--</td>-->
-        <!--<td>-->
-        <!--<button pButton type="button" label="حذف" (click)="remove(rowData.id)"></button>-->
-        <!--</td>-->
-        <!--</tr>-->
-        <!--</ng-template>-->
-        <!--</p-table>-->
-
-
-
         <p-footer>
         </p-footer>
+      </p-panel>
+
+      <br/>
+      <br/>
+
+      <p-panel header="ویرایش منو ها">
+
+        <div style="direction: ltr">
+          <p-treeTable [value]="menuTreeList">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>عنوان</th>
+                <th>تغییر</th>
+                <th>حذف</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+              <tr [ttSelectableRow]="rowNode">
+                <td>
+                  <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+                  {{rowData.title}} ({{rowData.name}})
+                </td>
+                <td>
+                  <button pButton type="button" name="editBtn" label="ویرایش" (click)="edit(rowData)"></button>
+                </td>
+                <td>
+                  <button pButton class="ui-button-danger" type="button" *ngIf="!rowData.childTreeList" name="deleteBtn"
+                          label="حذف" (click)="delete(rowData.id)"></button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-treeTable>
+        </div>
       </p-panel>
     </div>
   </div>

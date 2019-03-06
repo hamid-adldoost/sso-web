@@ -18,7 +18,7 @@ export const ROUTES: RouteInfo[] = [
   // {path: '#', title: 'دسترسی ها', icon: 'vpn_key', class: ''},
   {path: '/inner/roles', title: 'نقش ها', icon: 'contacts', class: ''},
   {path: '/inner/web-page', title: 'صفحات', icon: 'find_in_page', class: ''},
-  {path: '#', title: 'منو ها', icon: 'menu', class: ''},
+  {path: '/inner/menu', title: 'منو ها', icon: 'menu', class: ''},
 ];
 
 @Component({

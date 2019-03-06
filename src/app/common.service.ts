@@ -75,7 +75,7 @@ export class CommonService {
       return null;
     const treeMenuItem: TreeNode = <any>{
       label: item.title,
-      data: item.name,
+      data: item,
       expandedIcon: 'fa fa-folder-open',
       collapsedIcon: 'fa fa-folder',
       children: this.prepareTreeForMenuItemTree(item.childTreeList),

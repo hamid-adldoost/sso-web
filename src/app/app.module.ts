@@ -95,6 +95,7 @@ import { MenuComponent } from './menu/menu.component';
     GrowlModule,
     MultiSelectModule,
     TreeModule,
+    TreeTableModule,
   ],
   providers: [
     AuthService,
