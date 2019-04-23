@@ -25,6 +25,10 @@ export class CommonService {
     this.messageService.add({severity: 'error', summary: error.error.message});
   }
 
+  showPureErrorMessage(error: string) {
+    this.messageService.add({severity: 'error', summary: error});
+  }
+
   showInfoMessage(info: string) {
     this.messageService.add({severity: 'info', summary: info});
   }

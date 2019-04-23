@@ -47,7 +47,7 @@
     </ul>
 
     <div class="nav-container">
-        <ul class="nav">
+        <ul class="nav" *ngIf="authService.hasRole('ADMIN_ROLE')">
             <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
                   <a [routerLink]="[menuItem.path]" (click)="activateChild(menuItem)">
                     <span *ngIf="menuItem.children"><i class="material-icons" style="font-size: 12pt">details</i></span>

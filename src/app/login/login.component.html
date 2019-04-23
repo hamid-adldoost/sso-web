@@ -1,0 +1,51 @@
+<!--<div class="main-content">-->
+
+  <!--<div class="container-fluid">-->
+    <!--<p-messages ></p-messages>-->
+    <p-growl></p-growl>
+    <div class="row" style="direction: rtl; margin-top: 30vh;">
+
+      <div class="ui-g">
+        <div class="ui-lg-4 ui-md-1 ui-sm-12">
+
+        </div>
+        <div class="ui-lg-4 ui-md-10 ui-sm-12">
+          <p-panel>
+            <p-header>
+              ورود کاربران
+            </p-header>
+
+            <div class="row">
+
+              <div class="ui-g" style="font-family: iran-sans-web">
+
+                <div class="ui-lg-4 ui-md-12 ui-sm-12">
+                  نام کاربری :
+                </div>
+                <div class="ui-lg-8 ui-md-12 ui-sm-12">
+                  <input type="text" pInputText [(ngModel)]="user.username" placeholder="نام کاربری">
+                </div>
+                <div class="ui-lg-4 ui-md-12 ui-sm-12">
+                  کلمه عبور:
+                </div>
+                <div class="ui-lg-8 ui-md-12 ui-sm-12">
+                  <input type="password" pInputText [(ngModel)]="user.password" placeholder="کلمه فعلی">
+                </div>
+
+                <div class="ui-lg-4 ui-md-12 ui-sm-12">
+
+                </div>
+                <div class="ui-lg-8 ui-md-12 ui-sm-12">
+                  <button pButton type="button" label="ثبت" (click)="login()"></button>
+                </div>
+              </div>
+            </div>
+          </p-panel>
+        </div>
+        <div class="ui-lg-4 ui-md-1 ui-sm-12">
+
+        </div>
+      </div>
+    </div>
+  <!--</div>-->
+<!--</div>-->

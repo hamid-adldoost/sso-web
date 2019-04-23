@@ -41,6 +41,7 @@ import { PermissionsComponent } from './permissions/permissions.component';
 import { RolesComponent } from './roles/roles.component';
 import { WebPageComponent } from './web-page/web-page.component';
 import { MenuComponent } from './menu/menu.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { MenuComponent } from './menu/menu.component';
     RolesComponent,
     WebPageComponent,
     MenuComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
