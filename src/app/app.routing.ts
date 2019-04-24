@@ -16,7 +16,7 @@ import {AuthGuardService} from './auth-guard.service';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'inner/dashboard',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {

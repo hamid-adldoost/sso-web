@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService.login(this.user).subscribe(res => {
       this.authService.setCurrentUserRoles(res.roles);
+      this.authService.setCurrentPermissions(res.permissions);
       this.router.navigateByUrl('/inner/dashboard');
     }, error => {
       this.commonService.showErrorMessage(error);

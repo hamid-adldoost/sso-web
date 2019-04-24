@@ -36,6 +36,9 @@ export class AuthService {
   public getCurrentUserRoles(): String[] {
 
     const rolesObject = localStorage.getItem('roles');
+    if (!rolesObject) {
+      return [];
+    }
     return JSON.parse(rolesObject);
   }
 
@@ -56,5 +59,17 @@ export class AuthService {
       return true;
     }
     return false;
+  }
+
+  setCurrentPermissions(permissions: any) {
+    const rolesObject = localStorage.setItem('permissions', JSON.stringify(permissions));
+  }
+
+  getCurrentPermissions(): String[] {
+    const permsObject = localStorage.getItem('permissions');
+    if (!permsObject) {
+      return [];
+    }
+    return JSON.parse(permsObject);
   }
 }

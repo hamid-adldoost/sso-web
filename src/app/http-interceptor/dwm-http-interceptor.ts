@@ -63,7 +63,8 @@ export class DwmHttpInterceptor implements HttpInterceptor, OnInit {
             if (err.status === 401) {
               console.log('not authorized: ' + err.status);
               this.messageService.add({severity: 'error', summary: 'دسترسی امکان پذیر نمیباشد.'});
-              this.router.navigate(['/login']);
+              this.authService.logout();
+              // this.router.navigate(['/login']);
             }
             return throwError(err);
           }
